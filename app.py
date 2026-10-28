@@ -5,7 +5,6 @@ app = Flask(__name__)
 
 
 # ГЛАВНАЯ СТРАНИЦА
-# ГЛАВНАЯ СТРАНИЦА
 @app.route('/')
 def index():
     return render_template('index.html')
