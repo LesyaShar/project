@@ -11,12 +11,9 @@ def get_db_connection():
     username = os.getenv("DB_USER")
     password = os.getenv("DB_PASSWORD")
 
-    # Если приложение работает внутри Docker —
-    # подключаемся к SQL Server на Windows через host.docker.internal
     if os.getenv("DOCKER_ENV") == "true":
         server = "host.docker.internal,1433"
     else:
-        # Обычный запуск Python непосредственно в Windows
         server = r"Lesya\SQLEXPRESS"
 
     print("=== ДАННЫЕ ПОДКЛЮЧЕНИЯ ===")
