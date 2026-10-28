@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /api/
+Disallow: /cart
+Disallow: /profile
+
+Sitemap: http://127.0.0.1:5000/sitemap.xml

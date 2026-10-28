@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Что почитать? — В стране книг{% endblock %}
+{% block description %}Подборки книг от интернет-магазина «В стране книг»: викторианская литература, путешествия во времени, магия и алхимия, детективы и книги по психологии.{% endblock %}
+
+{% block content %}
+        <!-- ПОДБОРКИ КНИГ (как в макете Figma «Что почитать?») -->
+        <section class="inner-section">
+            <h1 class="page-title">Что почитать?</h1>
+
+            <div class="recommendations-grid">
+                <a href="/catalog" class="recommendation-card">
+                    <div class="recommendation-image recommendation-image-victorian">
+                        <img src="{{ url_for('static', filename='images/victorian-literature.jpg') }}" alt="" loading="lazy">
+                    </div>
+                    <h2>Викторианская литература</h2>
+                    <p>Классические романы, готика, приключения</p>
+                </a>
+
+                <a href="/catalog" class="recommendation-card">
+                    <div class="recommendation-image recommendation-image-time">
+                        <img src="{{ url_for('static', filename='images/time-travel.jpg') }}" alt="" loading="lazy">
+                    </div>
+                    <h2>Путешествия во времени</h2>
+                    <p>Альтернативные реальности, встречи с прошлым</p>
+                </a>
+
+                <a href="/catalog" class="recommendation-card">
+                    <div class="recommendation-image recommendation-image-magic">
+                        <img src="{{ url_for('static', filename='images/magic-alchemy.jpg') }}" alt="" loading="lazy">
+                    </div>
+                    <h2>Магия и алхимия</h2>
+                    <p>Древние знания, секретные общества, заклинания</p>
+                </a>
+
+                <a href="/catalog" class="recommendation-card">
+                    <div class="recommendation-image recommendation-image-caterpillar">
+                        <img src="{{ url_for('static', filename='images/caterpillar-advice.jpg') }}" alt="" loading="lazy">
+                    </div>
+                    <h2>Советы Гусеницы</h2>
+                    <p>Книги по саморазвитию и психологии</p>
+                </a>
+
+                <a href="/catalog" class="recommendation-card">
+                    <div class="recommendation-image recommendation-image-rabbit">
+                        <img src="{{ url_for('static', filename='images/white-rabbit.jpg') }}" alt="" loading="lazy">
+                    </div>
+                    <h2>Следуй за Белым Кроликом</h2>
+                    <p>Книги, уводящие в необычные миры</p>
+                </a>
+
+                <a href="/catalog" class="recommendation-card">
+                    <div class="recommendation-image recommendation-image-roses">
+                        <img src="{{ url_for('static', filename='images/painted-roses.jpg') }}" alt="" loading="lazy">
+                    </div>
+                    <h2>Кто покрасил розы</h2>
+                    <p>Книги с запутанными детективными историями и интригами</p>
+                </a>
+            </div>
+        </section>
+{% endblock %}

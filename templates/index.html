@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}В стране книг{% endblock %}
+{% block description %}Широкий выбор иллюстрированных изданий, популярной манги, эксклюзивных книг и канцтоваров в интернет-магазине В стране книг. Доставка по всей России.{% endblock %}
+
+{% block content %}
+        <!-- ГЛАВНЫЙ БАННЕР -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1>Все чудесатее и чудесатее</h1>
+                <p class="hero-subtitle">иллюстрированное издание от Loputyn</p>
+            </div>
+            <div class="hero-image-container">
+                <span class="discount-badge">-15%</span>
+                <img src="{{ url_for('static', filename='images/alice.jpg') }}" alt="Алиса в стране чудес" class="hero-img">
+            </div>
+        </section>
+
+        <!-- ПЛИТКА КАТЕГОРИЙ -->
+        <section class="categories-grid">
+            <a href="/catalog" class="category-card card-manga">
+                <h3>Лучшая<br>манга</h3>
+                <span class="cat-symbol"></span>
+            </a>
+            <a href="/catalog" class="category-card card-exclusive">
+                <h3>Эксклюзив</h3>
+                <span class="cat-symbol"></span>
+            </a>
+            <a href="/catalog" class="category-card card-soon">
+                <h3>Скоро<br>в продаже</h3>
+                <span class="cat-symbol"></span>
+            </a>
+        </section>
+
+        <!-- БЛОК С НОВИНКАМИ -->
+        <section class="products-section">
+            <h2 class="section-title">Новинки</h2>
+            <!-- Контейнер пустой, данные прилетают из Flask API (/api/products) -->
+            <div class="products-grid" id="products-container">
+                <!-- Книги загрузятся сюда автоматически -->
+            </div>
+        </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

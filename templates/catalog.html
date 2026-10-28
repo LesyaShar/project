@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Каталог — В стране книг{% endblock %}
+{% block description %}Каталог книг интернет-магазина «В стране книг»: новинки, манга, иллюстрированные и эксклюзивные издания. Фильтры по категориям и сортировка по цене.{% endblock %}
+
+{% block content %}
+        <!-- БЛОК С ТОВАРАМИ КАТАЛОГА -->
+        <section class="products-section">
+            <h1 class="section-title">Новинки</h1>
+
+            <!-- Панель фильтров -->
+            <div class="catalog-filters-row">
+                <select id="category-filter" class="filter-dropdown" aria-label="Категория">
+                    <option value="all">Все категории</option>
+                    <!-- Остальные категории добавит catalog.js из данных API -->
+                </select>
+                <select id="sort-filter" class="filter-dropdown" aria-label="Сортировка">
+                    <option value="new">По новизне</option>
+                    <option value="price_asc">Сначала недорогие</option>
+                    <option value="price_desc">Сначала дорогие</option>
+                    <option value="title">По названию (А–Я)</option>
+                </select>
+            </div>
+
+            <!-- Сюда catalog.js напишет, сколько книг найдено -->
+            <p id="catalog-status" class="catalog-status"></p>
+
+            <!-- Сетка товаров из базы данных (/api/products/all) -->
+            <div class="products-grid" id="catalog-products-container">
+                <!-- Карточки сгенерируются динамически через JS -->
+            </div>
+
+            <!-- Пагинация: кнопки страниц генерирует catalog.js -->
+            <div class="pagination-container" id="pagination-container"></div>
+        </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/catalog.js') }}"></script>
+{% endblock %}

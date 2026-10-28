@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Корзина — В стране книг{% endblock %}
+{# Корзину не индексируем: это служебная страница покупателя #}
+{% block extra_head %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+
+{% block content %}
+        <!-- КОРЗИНА (товары сюда подставляет cart_page.js из localStorage) -->
+        <section class="inner-section">
+            <div class="cart-header-row">
+                <div class="cart-title-group">
+                    <h1 class="page-title">Корзина</h1>
+                    <span id="cart-count-text" class="cart-count-text"></span>
+                </div>
+                <button id="clear-cart-btn" class="clear-cart-btn" type="button">Очистить корзину</button>
+            </div>
+
+            <h2 class="inner-subtitle">Товары в наличии</h2>
+
+            <!-- Список товаров корзины -->
+            <div id="cart-items" class="cart-items"></div>
+
+            <!-- Пустая корзина -->
+            <div id="cart-empty" class="cart-empty" hidden>
+                <p>В корзине пока пусто 🐇</p>
+                <a href="/catalog" class="checkout-btn cart-empty-link">Перейти к каталогу</a>
+            </div>
+
+            <!-- Итого и оформление -->
+            <div id="cart-summary" class="cart-summary" hidden>
+                <div class="cart-total-row">
+                    <span>Итого</span>
+                    <strong id="cart-total">0 руб</strong>
+                </div>
+                <button id="checkout-btn" class="checkout-btn" type="button">Оформить заказ</button>
+            </div>
+
+            <!-- Успешное оформление -->
+            <div id="checkout-success" class="checkout-success" hidden>
+                <p>✅ Заказ оформлен! Его можно посмотреть в профиле.</p>
+                <a href="/profile" class="checkout-btn cart-empty-link">Мои заказы</a>
+            </div>
+        </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/cart_page.js') }}"></script>
+{% endblock %}

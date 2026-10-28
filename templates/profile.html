@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль — В стране книг{% endblock %}
+{# Личный кабинет не индексируем #}
+{% block extra_head %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+
+{% block content %}
+        <!-- ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+        <section class="inner-section">
+            <h1 class="page-title">Профиль</h1>
+
+            <h2 class="inner-subtitle">Личные данные</h2>
+            {#
+              Пока на сайте нет регистрации и входа, здесь показаны
+              демонстрационные данные. Когда появится авторизация,
+              сюда нужно будет подставлять данные залогиненного
+              пользователя из таблицы Users.
+            #}
+            <div class="profile-personal">
+                <p class="profile-name">Шумова Елена</p>
+                <p class="profile-contacts">+7 (900) 000-00-00 · elena@example.com</p>
+            </div>
+
+            <h2 class="inner-subtitle">Активные заказы</h2>
+            <!-- Заказы подставляет profile.js:
+                 оформленные на сайте (localStorage) + из БД (/api/users/<id>/orders) -->
+            <div id="orders-container" class="orders-container"></div>
+            <p id="orders-status" class="profile-muted">Загружаем заказы…</p>
+
+            <h2 class="inner-subtitle">Активные бронирования</h2>
+            <p class="profile-muted">У вас пока нет активных бронирований</p>
+        </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}
